@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
+        protocol.cpp \
         tcpclient.cpp
 
 HEADERS += \

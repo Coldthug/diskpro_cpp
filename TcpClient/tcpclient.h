@@ -14,7 +14,7 @@ class TcpClient : public QWidget
     Q_OBJECT
 
 public:
-    explicit TcpClient(QWidget *parent = nullptr);
+    explicit TcpClient(QWidget *parent = 0);
     ~TcpClient();
 
     //加载配置文件
@@ -22,9 +22,16 @@ public:
 
 public slots:
     void  showConnect();
+    void recvMsg();
 
 private slots:
-    void on_send_pb_clicked();
+//    void on_send_pb_clicked();
+
+    void on_log_pb_clicked();
+
+    void on_reg_pb_clicked();
+
+    void on_logout_pb_clicked();
 
 private:
     Ui::TcpClient *ui;

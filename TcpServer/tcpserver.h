@@ -1,5 +1,6 @@
 #ifndef TCPSERVER_H
 #define TCPSERVER_H
+#include "mytcpserver.h"
 #include <QTcpServer>
 #include <QWidget>
 #include <QFile>

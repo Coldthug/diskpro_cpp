@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QTcpServer>
+#include<QList>
+#include "mytcpsocket.h"
 
 class MyTcpServer : public QTcpServer
 {
@@ -14,6 +16,12 @@ public:
     static MyTcpServer &getInstance();
 
     void incomingConnection(qintptr socketDescriptor);
+
+private:
+    QList<MyTcpSocket*> m_tcpSocketList;
+
+public slots:
+    void deleteSocket(MyTcpSocket *mysocket);
 };
 
 #endif // MYTCPSERVER_H
