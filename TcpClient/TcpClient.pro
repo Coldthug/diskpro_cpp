@@ -25,15 +25,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        book.cpp \
+        friend.cpp \
         main.cpp \
+        online.cpp \
+        opewidget.cpp \
         protocol.cpp \
         tcpclient.cpp
 
 HEADERS += \
+        book.h \
+        friend.h \
+        online.h \
+        opewidget.h \
         protocol.h \
         tcpclient.h
 
 FORMS += \
+        online.ui \
         tcpclient.ui
 
 # Default rules for deployment.
