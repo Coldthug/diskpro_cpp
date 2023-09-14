@@ -1,9 +1,10 @@
 #include "tcpserver.h"
 #include "ui_tcpserver.h"
-#include <QHostAddress>
+#include <QByteArray>
 #include <QDebug>
 #include <QMessageBox>
-
+#include <QHostAddress>
+#include <QFile>
 
 TcpServer::TcpServer(QWidget *parent) :
     QWidget(parent),

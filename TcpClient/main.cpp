@@ -8,6 +8,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    TcpClient::getInstance().show();
 //    TcpClient w;
 //    w.show();
 
@@ -22,7 +23,7 @@ int main(int argc, char *argv[])
 //    f.show();
 
 
-    OpeWidget opeWidget;
-    opeWidget.show();
+//    OpeWidget opeWidget;
+//    opeWidget.show();
     return a.exec();
 }

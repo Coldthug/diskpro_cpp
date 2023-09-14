@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QTcpSocket>
 #include"protocol.h"
+#include "opewidget.h"
 namespace Ui {
 class TcpClient;
 }
@@ -20,6 +21,9 @@ public:
     //加载配置文件
     void loadConfig();
 
+    static TcpClient &getInstance();
+    QTcpSocket &getTcpSocket();
+    QString loginName();
 public slots:
     void  showConnect();
     void recvMsg();
@@ -42,7 +46,8 @@ private:
     //端口号
     quint16 m_usPort;
 
-    QTcpSocket m_tcpScoket;
+    QTcpSocket m_tcpSocket;
+    QString m_strLoginName;
 };
 
 #endif // TCPCLIENT_H

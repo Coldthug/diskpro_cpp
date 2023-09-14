@@ -1,19 +1,36 @@
 #ifndef FRIEND_H
 #define FRIEND_H
 
-#include "online.h"
-
-#include <QLineEdit>
-#include <QListWidget>
-#include <QPushButton>
-#include <QTextEdit>
 #include <QWidget>
+#include <QTextEdit>
+#include <QListWidget>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include "online.h"
 
 class Friend : public QWidget
 {
     Q_OBJECT
 public:
     explicit Friend(QWidget *parent = nullptr);
+    void showAllOnlineUsr(PDU *pdu);
+    void updateFriendList(PDU *pdu);
+    void updateGroupMsg(PDU *pdu);
+
+    QString m_strSearchName;
+
+signals:
+
+public slots:
+    void showOnline();
+    void searchUsr();
+    void flushFriend();
+    void delFriend();
+    void privateChat();
+    void groupChat();
+
 private:
     QTextEdit *m_pShowMsgTE;
     QListWidget *m_pFriendListWidget;
@@ -27,10 +44,6 @@ private:
     QPushButton *m_pPrivateChatPB;
 
     Online *m_pOnline;
-signals:
-
-public slots:
-    void showOnline();
 };
 
 #endif // FRIEND_H

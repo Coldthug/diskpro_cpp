@@ -1,7 +1,6 @@
 #ifndef MYTCPSERVER_H
 #define MYTCPSERVER_H
 
-#include <QMainWindow>
 #include <QTcpServer>
 #include<QList>
 #include "mytcpsocket.h"
@@ -17,11 +16,15 @@ public:
 
     void incomingConnection(qintptr socketDescriptor);
 
-private:
-    QList<MyTcpSocket*> m_tcpSocketList;
+    void resend(const char *pername, PDU *pdu);
 
 public slots:
     void deleteSocket(MyTcpSocket *mysocket);
+
+private:
+    QList<MyTcpSocket*> m_tcpSocketList;
+
+
 };
 
 #endif // MYTCPSERVER_H

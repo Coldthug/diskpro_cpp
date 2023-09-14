@@ -17,23 +17,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QListWidget" name="online_lw">
-       <item>
-        <property name="text">
-         <string>111</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>222</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>333</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QListWidget" name="online_lw"/>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
