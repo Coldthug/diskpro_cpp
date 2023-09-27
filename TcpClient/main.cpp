@@ -1,29 +1,24 @@
 #include "tcpclient.h"
 #include <QApplication>
-#include "opewidget.h"
-#include "online.h"
-#include "friend.h"
-
+#include "book.h"
+//#include "sharefile.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    TcpClient::getInstance().show();
-//    TcpClient w;
+    QFont font("Times", 24, QFont::Bold);
+    a.setFont(font);
+
+//    ShareFile w;
+//    w.test();
 //    w.show();
 
-//    OpeWidget O;
-//    O.show();
+//    TcpClient w;
+//    w.show();
+    TcpClient::getInstance().show();
 
-//    Online online;
-//    online.show();
+//    Book w;
+//    w.show();
 
-
-//    Friend f;
-//    f.show();
-
-
-//    OpeWidget opeWidget;
-//    opeWidget.show();
     return a.exec();
 }

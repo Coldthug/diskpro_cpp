@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>226</width>
+    <height>210</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,43 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QListWidget" name="online_lw"/>
+      <widget class="QListWidget" name="online_lw">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <item>
+        <property name="text">
+         <string>11111</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2222</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3333</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4444</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>5555</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>6666</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -36,8 +72,14 @@
        </item>
        <item>
         <widget class="QPushButton" name="addFriend_pb">
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>24</pointsize>
+          </font>
+         </property>
          <property name="text">
-          <string>添加好友</string>
+          <string>加好友</string>
          </property>
         </widget>
        </item>

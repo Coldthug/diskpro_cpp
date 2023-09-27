@@ -1,6 +1,7 @@
 #include "online.h"
-#include "tcpclient.h"
 #include "ui_online.h"
+#include <QDebug>
+#include "tcpclient.h"
 
 Online::Online(QWidget *parent) :
     QWidget(parent),
@@ -14,8 +15,6 @@ Online::~Online()
     delete ui;
 }
 
-
-// Bug : 每点击一次显示在线用户按钮，都会触发，重复添加在线用户，需判断，如果列表已存在在线用户，不再添加
 void Online::showUsr(PDU *pdu)
 {
     if (NULL == pdu)

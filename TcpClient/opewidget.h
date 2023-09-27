@@ -3,26 +3,29 @@
 
 #include <QWidget>
 #include <QListWidget>
-#include <QStackedWidget>
 #include "friend.h"
 #include "book.h"
+#include <QStackedWidget>
 
 class OpeWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit OpeWidget(QWidget *parent = nullptr);
+    explicit OpeWidget(QWidget *parent = 0);
     static OpeWidget &getInstance();
     Friend *getFriend();
-private:
-    QListWidget *m_pListW;
-    QStackedWidget *m_pSW;
+    Book *getBook();
 
-    Friend *m_pFriend;
-    Book *m_pBook;
 signals:
 
 public slots:
+
+private:
+    QListWidget *m_pListW;
+    Friend *m_pFriend;
+    Book *m_pBook;
+
+    QStackedWidget *m_pSW;
 };
 
 #endif // OPEWIDGET_H

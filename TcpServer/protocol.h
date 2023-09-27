@@ -1,9 +1,11 @@
 #ifndef PROTOCOL_H
 #define PROTOCOL_H
 
-#include<stdlib.h>
-#include<unistd.h>
-#include<string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+typedef unsigned int uint;
 
 #define REGIST_OK "regist ok"
 #define REGIST_FAILED "regist failed : name existed"
@@ -22,7 +24,28 @@
 
 #define DEL_FRIEND_OK "delete friend ok"
 
-typedef unsigned int uint;
+#define DIR_NO_EXIST "cur dir not exist"
+#define FILE_NAME_EXIST "file name exist"
+#define CREAT_DIR_OK "create dir ok"
+
+#define DEL_DIR_OK "delete dir ok"
+#define DEL_DIR_FAILURED "delete dir failured: is reguler file"
+
+#define RENAME_FILE_OK "rename file ok"
+#define RENAME_FILE_FAILURED "rename file failured"
+
+#define ENTER_DIR_FAILURED "enter dir failured: is reguler file"
+
+#define DEL_FILE_OK "delete file ok"
+#define DEL_FILE_FAILURED "delete file failured: is diretory"
+
+#define UPLOAD_FILE_OK "upload file ok"
+#define UPLOAD_FILE_FAILURED "upload file failured"
+
+#define MOVE_FILE_OK "move file ok"
+#define MOVE_FILE_FAILURED "move file failured:is reguler file"
+
+#define COMMON_ERR "operate failed: system is busy"
 
 enum ENUM_MSG_TYPE
 {
@@ -57,16 +80,55 @@ enum ENUM_MSG_TYPE
     ENUM_MSG_TYPE_GROUP_CHAT_REQUEST,//群聊请求
     ENUM_MSG_TYPE_GROUP_CHAT_RESPOND,//群聊回复
 
+    ENUM_MSG_TYPE_CREATE_DIR_REQUEST,  //创建文件夹请求
+    ENUM_MSG_TYPE_CREATE_DIR_RESPOND,  //创建文件夹回复
+
+    ENUM_MSG_TYPE_FLUSH_FILE_REQUEST,  //刷新文件请求
+    ENUM_MSG_TYPE_FLUSH_FILE_RESPOND,  //刷新文件回复
+
+    ENUM_MSG_TYPE_DEL_DIR_REQUEST,  //删除目录请求
+    ENUM_MSG_TYPE_DEL_DIR_RESPOND,  //删除目录回复
+
+    ENUM_MSG_TYPE_RENAME_FILE_REQUEST,  //重命名文件请求
+    ENUM_MSG_TYPE_RENAME_FILE_RESPOND,  //重命名文件回复
+
+    ENUM_MSG_TYPE_ENTER_DIR_REQUEST,   //进入文件夹请求
+    ENUM_MSG_TYPE_ENTER_DIR_RESPOND,   //进入文件夹回复
+
+    ENUM_MSG_TYPE_DEL_FILE_REQUEST,   //删除常规文件请求
+    ENUM_MSG_TYPE_DEL_FILE_RESPOND,   //删除常规文件回复
+
+    ENUM_MSG_TYPE_UPLOAD_FILE_REQUEST, //上传文件请求
+    ENUM_MSG_TYPE_UPLOAD_FILE_RESPOND, //上传文件回复
+
+    ENUM_MSG_TYPE_DOWNLOAD_FILE_REQUEST, //下载文件请求
+    ENUM_MSG_TYPE_DOWNLOAD_FILE_RESPOND, //下载文件回复
+
+    ENUM_MSG_TYPE_SHARE_FILE_REQUEST, //共享文件请求
+    ENUM_MSG_TYPE_SHARE_FILE_RESPOND, //共享文件回复
+
+    ENUM_MSG_TYPE_SHARE_FILE_NOTE,
+    ENUM_MSG_TYPE_SHARE_FILE_NOTE_RESPOND,
+
+    ENUM_MSG_TYPE_MOVE_FILE_REQUEST, //移动文件请求
+    ENUM_MSG_TYPE_MOVE_FILE_RESPOND, //移动文件回复
+
     ENUM_MSG_TYPE_MAX=0x00ffffff
+};
+
+struct FileInfo
+{
+    char caFileName[32];  //文件名字
+    int iFileType;        //文件类型
 };
 
 struct PDU
 {
-    uint uiPDULen;         //总的协议数据单元大小
-    uint uiMsgType;        //消息类型
+    uint uiPDULen;     //总的协议数据单元大小
+    uint uiMsgType;    //消息类型
     char caData[64];
-    uint uiMsgLen;         //实际消息长度
-    int caMsg[];           //实际消息
+    uint uiMsgLen;     //实际消息长度
+    int caMsg[];       //实际消息
 };
 
 PDU *mkPDU(uint uiMsgLen);

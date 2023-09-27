@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2023-07-03T21:03:25
+# Project created by QtCreator 2019-12-11T10:45:22
 #
 #-------------------------------------------------
 
@@ -12,7 +12,7 @@ TARGET = TcpServer
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
-# any feature of Qt which has been marked as deprecated (the exact warnings
+# any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -22,30 +22,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-CONFIG += c++11
 
-SOURCES += \
-        main.cpp \
-        mytcpserver.cpp \
-        mytcpsocket.cpp \
-        opedb.cpp \
-        protocol.cpp \
-        tcpserver.cpp
+SOURCES += main.cpp\
+        tcpserver.cpp \
+    mytcpserver.cpp \
+    mytcpsocket.cpp \
+    protocol.cpp \
+    opedb.cpp
 
-HEADERS += \
-        mytcpserver.h \
-        mytcpsocket.h \
-        opedb.h \
-        protocol.h \
-        tcpserver.h
+HEADERS  += tcpserver.h \
+    mytcpserver.h \
+    mytcpsocket.h \
+    protocol.h \
+    opedb.h
 
-FORMS += \
-        tcpserver.ui
-
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+FORMS    += tcpserver.ui
 
 RESOURCES += \
     config.qrc

@@ -14,12 +14,14 @@ class Friend : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Friend(QWidget *parent = nullptr);
+    explicit Friend(QWidget *parent = 0);
     void showAllOnlineUsr(PDU *pdu);
     void updateFriendList(PDU *pdu);
     void updateGroupMsg(PDU *pdu);
 
     QString m_strSearchName;
+
+    QListWidget *getFriendList();
 
 signals:
 
@@ -44,6 +46,8 @@ private:
     QPushButton *m_pPrivateChatPB;
 
     Online *m_pOnline;
+
+
 };
 
 #endif // FRIEND_H

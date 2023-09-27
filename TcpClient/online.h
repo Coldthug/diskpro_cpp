@@ -2,8 +2,8 @@
 #define ONLINE_H
 
 #include <QWidget>
-#include <QDebug>
 #include "protocol.h"
+
 namespace Ui {
 class Online;
 }
@@ -13,8 +13,9 @@ class Online : public QWidget
     Q_OBJECT
 
 public:
-    explicit Online(QWidget *parent = nullptr);
+    explicit Online(QWidget *parent = 0);
     ~Online();
+
     void showUsr(PDU *pdu);
 
 private slots:

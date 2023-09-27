@@ -5,15 +5,16 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QStringList>
+
 class OpeDB : public QObject
 {
     Q_OBJECT
 public:
-    explicit OpeDB(QObject *parent = nullptr);
-
+    explicit OpeDB(QObject *parent = 0);
     static OpeDB& getInstance();
     void init();
     ~OpeDB();
+
     bool handleRegist(const char *name, const char *pwd);
     bool handleLogin(const char *name, const char *pwd);
     void handleOffline(const char *name);
@@ -24,13 +25,11 @@ public:
     QStringList handleFlushFriend(const char *name);
     bool handleDelFriend(const char *name, const char *friendName);
 
-
-
-private:
-    QSqlDatabase m_db;  //连接数据库
 signals:
 
 public slots:
+private:
+    QSqlDatabase m_db;  //连接数据库
 };
 
 #endif // OPEDB_H
